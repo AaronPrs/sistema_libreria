@@ -42,5 +42,5 @@ if __name__ == "__main__":
     pc.usuarios.agregar_usuario("Juan Pérez", "juan@example.com", "1234567890", "Calle 123")
     pc.inventario.agregar_libro(5, "978-3-16-148410-0", "Don Quijote de la Mancha", "Miguel de Cervantes", "Novela")
 
-    print(pc.crear_prestamo(1, 1, "978-3-16-148410-0", "2024-06-30 12:00:00"))
+    print(pc.crear_prestamo(1, 1, "978-3-16-148410-0", "2026-08-30 12:00:00"))
     print(pc.obtener_prestamos())

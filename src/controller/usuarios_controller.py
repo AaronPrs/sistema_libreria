@@ -3,19 +3,21 @@ from ..models.usuario import Usuario
 
 class UsuariosController:
     def __init__(self):
-        self.usuarios = {}
+        self.usuarios = []
+        self.contador_id = 1
 
     def agregar_usuario(self, nombre, correo, telefono, direccion):
-        id_usuario = len(self.usuarios) + 1
-        if id_usuario in self.usuarios:
+        id_usuario = self.contador_id
+        self.contador_id += 1
+        if any(u.id == id_usuario for u in self.usuarios):
             return f"ERROR: El usuario con ID {id_usuario} ya existe."
 
         nuevo_usuario = Usuario(id_usuario, nombre, correo, telefono, direccion)
-        self.usuarios[id_usuario] = nuevo_usuario
+        self.usuarios.append(nuevo_usuario)
         return f"Usuario agregado con éxito: {nuevo_usuario}"
 
     def obtener_usuarios(self):
-        return [str(u) for u in self.usuarios.values()]
+        return [str(u) for u in self.usuarios]
 
 
 if __name__ == "__main__":

@@ -4,14 +4,15 @@ from ..models.libro import Libro
 class InventarioController:
     def __init__(self):
         self.libros = {}
-
+        self.contador_id = 1
     def agregar_libro(self, cantidad, isbn, titulo, autor, genero):
         if isbn in self.libros:
             self.libros[isbn].cantidad += cantidad
             return f"Se han agregado {cantidad} unidades al libro con ISBN {isbn}. Total disponible: {self.libros[isbn].cantidad}"
         else:
-            nuevo_libro = Libro(len(self.libros) + 1, titulo, autor, genero, cantidad, isbn)
+            nuevo_libro = Libro(self.contador_id, titulo, autor, genero, cantidad, isbn)
             self.libros[isbn] = nuevo_libro
+            self.contador_id += 1
             return f"Libro agregado con éxito. Total disponible: {nuevo_libro.cantidad}"
 
     def obtener_catalogo(self):
