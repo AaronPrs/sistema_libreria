@@ -8,6 +8,3 @@ class Usuario:
 
     def __str__(self):
         return f"Usuario(id_usuario={self.id_usuario}, nombre={self.nombre}, correo={self.correo}, telefono={self.telefono}, direccion={self.direccion})"
-    
-prueba_usuario = Usuario(1, "Juan Pérez", "juan.perez@example.com", "1234567890", "Calle Principal 123")
-print(prueba_usuario)

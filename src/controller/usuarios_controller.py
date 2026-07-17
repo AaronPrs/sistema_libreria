@@ -9,7 +9,7 @@ class UsuariosController:
     def agregar_usuario(self, nombre, correo, telefono, direccion):
         id_usuario = self.contador_id
         self.contador_id += 1
-        if any(u.id == id_usuario for u in self.usuarios):
+        if any(u.id_usuario == id_usuario for u in self.usuarios):
             return f"ERROR: El usuario con ID {id_usuario} ya existe."
 
         nuevo_usuario = Usuario(id_usuario, nombre, correo, telefono, direccion)

@@ -1,14 +1,12 @@
 from ..models.prestamo import Prestamo
-from .inventario_controller import InventarioController
-from .usuarios_controller import UsuariosController
 
 
 class PrestamosController:
-    def __init__(self):
+    def __init__(self, inventario_controller=None, usuarios_controller=None):
         self.prestamos = []
         self.contador_id = 1
-        self.inventario = InventarioController()
-        self.usuarios = UsuariosController()
+        self.inventario = inventario_controller
+        self.usuarios = usuarios_controller
 
     def crear_prestamo(self, id_usuario, id_libro, isbn_libro, fecha_devolucion):
         # verificar usuario existente
